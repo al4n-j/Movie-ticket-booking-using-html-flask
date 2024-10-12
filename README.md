@@ -21,4 +21,4 @@ A5 Film City is a movie ticket booking website built using Flask and MySQL. The 
 
 **Clone the repository:**
    ```bash
-   git clone https://github.com/al4n-j/Movie-ticket-booking-using-flask.git
+   git clone https://github.com/al4n-j/Movie-ticket-booking-using-html-flask.git
