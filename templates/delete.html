@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+    <link rel="icon" href="/static/logo.jpg" type="image/jpg">
+    <style>
+        body {
+            background-image: url("/static/bbin.jpg");
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: whitesmoke;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.8); /* Add transparency to the container background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: beige;
+            text-align: center;
+        }
+
+        .flash {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: 200px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8a2d2d;
+        }
+    </style>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">
+        <p>{{ message }}</p>
+    </div>  
+    {% endfor %}
+    <br><br><br><br><br>
+    <div class="container">
+    <form method="POST">
+        <label for="tid">Enter TRANSACTION id :</label>
+        <input type="text" name="tid" required>
+        <button type="submit">Delete</button>
+    </form>
+    <br><br><br>
+    <a href='/admin'><button class="button">BACK</button></a>
+</div>
+</body>
+</html>

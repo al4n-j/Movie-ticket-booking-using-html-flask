@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create new user</title>
+  <link rel="icon" href="/static/logo.jpg" type="jpg">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url("/static/document.jpeg"); /* Replace 'your-background-image.jpg' with the path to your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form {
+      background-color: #000000d0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(206, 20, 20, 0.856);
+      max-width: 400px;
+      width: 100%;
+      color: beige;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    input {
+      width: 75%;
+      padding: 5px;
+      margin-bottom: 16px;
+    }
+    .flash {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px; /* Adjust the width as needed */
+        padding: 10px;
+        border: 2px solid rgb(209, 194, 194);
+        background-color: rgb(133, 35, 35);
+        color: black;
+        text-align: center;
+        z-index: 1000;
+    }
+    button {
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+    {% for massage in get_flashed_messages() %}
+    <div class="flash">
+        <p>{{massage}}</p>
+    </div>  
+    {% endfor %}
+    <form  method="post">
+      <h2>Create new user</h2>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      
+      <button type="submit">Sign In</button>
+    </form>
+
+</body>
+</html>

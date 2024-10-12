@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Page</title>
+    <style>
+        body {
+            background-image: url("/static/newbg.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3333335f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold; 
+        }
+
+        section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px; /* Gap between image and button */
+        }
+
+        .button {
+            width: 150px;
+            height: 40px;
+            background-color: rgba(255, 0, 0, 0.762);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover{
+            background-color: rgb(255, 0, 0);
+            color: whitesmoke;
+        }
+
+        img {
+            width: 300px; /* Image size */
+            height: 450px; /* Image size */
+            margin-right: 30px; /* Gap between images */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="font-family: 'Times New Roman', Times, serif; color: red;">A5 FILM CITY</h1>
+        <a href='/home' ><button class="button">HOME</button></a>
+    </header>
+
+    <section>
+        <div class="button-container">
+            <div class="image-container" style="margin-left: 45px;">
+                <img src="/static/oppn.jpg" alt="OPPENHEIMER">
+                <a href='/book/OPPENHEIMER' ><button class="button">BOOK NOW</button></a>
+            </div>
+
+            <div class="image-container">
+                <img src="/static/fc.jpg" alt="FIGHT CLUB">
+                <a href='/book/FIGHTCLUB' ><button class="button">BOOK NOW</button></a>
+            </div>
+
+            <div class="image-container">
+                <img src="/static/inter.jpg" alt="INERSTELLAR">
+                <a href='/book/INERSTELLAR' ><button class="button">BOOK NOW</button></a>
+            </div>
+
+            <div class="image-container">
+                <img src="/static/jw.jpg" alt="JOHN WICK 4">
+                <a href='/book/JOHNWICK4' ><button class="button">BOOK NOW</button></a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking</title>
+  <link rel="icon" href="/static/logo.jpg" type="jpg">
+  <style>
+    body {
+      background-image: url("/static/bookbg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: beige;
+    }
+    .image {
+      text-align: left;
+      margin-right: 500px; /* Increase the margin for more space */
+    }
+    .image img {
+      height: 450px;
+      width: auto;
+    }
+    .ticket-booking-app {
+      text-align: center;
+      flex-grow: 1;
+    }
+    h1 {
+      margin: 0;
+    }
+    select, input[type="date"], input[type="number"] {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+    }
+    .btn {
+      background-color: #0074d9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    marquee {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      font-size: 1.2em;
+    }
+    .flash {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px; /* Adjust the width as needed */
+      padding: 10px;
+      border: 2px solid rgb(209, 194, 194);
+      background-color: rgb(133, 35, 35);
+      color: black;
+      text-align: center;
+      z-index: 1000;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var today = new Date();
+      var tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+
+      var dd = tomorrow.getDate();
+      var mm = tomorrow.getMonth() + 1; // January is 0!
+      var yyyy = tomorrow.getFullYear();
+
+      if (dd < 10) {
+        dd = '0' + dd;
+      }
+
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+
+      var tomorrowString = yyyy + '-' + mm + '-' + dd;
+
+      document.querySelector('input[name="dte"]').setAttribute('max', tomorrowString);
+    });
+  </script>
+</head>
+<body>
+  
+  {% for massage in get_flashed_messages() %}
+    <div class="flash">
+      <p>{{massage}}</p>
+    </div>  
+  {% endfor %}
+  <form method="POST">
+    <div class="container">
+      <div class="image">
+        <img src="/static/{{img}}" alt="unable to load">
+      </div>
+      <div class="ticket-booking-app">
+        <h1>Book Your Tickets</h1>
+        <div>
+          <h2>Select Time:</h2>
+          <select name="time">
+            <option value="10AM">10:00 AM</option>
+            <option value="1AM">1:00 PM</option>
+            <option value="4PM">4:00 PM</option>
+          </select>
+        </div>
+        <div class="calendar">
+          <h2>Select Date:</h2>
+          <input type="date" name="dte" min="{{ current_date }}"  required>
+        </div>
+        <div class="seat-selection">
+          <h2>Number of Seats: <br>Rs. 177/seat</h2>
+          <input type="number" min="1" max="10" value="1" name="seatsno">
+        </div>
+        <input type="submit" class="btn" value="submit">
+      </div>
+    </div>
+  </form>
+  <marquee scrollamount="15" >Cancellation or refund services are not available for this booking. 
+    Once the reservation is confirmed, it is considered final, and changes or refunds cannot be processed. 
+    We appreciate your understanding in this matter.</marquee>
+</body>
+</html>
